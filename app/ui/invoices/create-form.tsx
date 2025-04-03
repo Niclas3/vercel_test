@@ -12,7 +12,7 @@ import { createInvoice } from '@/app/lib/actions';
 import {  useActionState } from 'react';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
-  const [state, dispatch] = useActionState(createInvoice, {message:null ,error:{}});
+  const [state, dispatch] = useActionState(createInvoice, {message:"",error:{}});
   return (
     <form action={dispatch}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">

@@ -102,7 +102,8 @@ export async function updateInvoice(id: string, formData: FormData) {
                 revalidatePath('/dashboard/invoices');
                 redirect('/dashboard/invoices');
         } catch(err){
-                return { message : 'Database Error: Failed to update Invoice.', error: err};
+                throw err;
+                // return { message : 'Database Error: Failed to update Invoice.', error: err};
         }
 }
 
@@ -111,7 +112,8 @@ export async function deleteInvoice(id: string, _: FormData){
         await sql`DELETE FROM invoices WHERE id = ${id}`;
         revalidatePath('/dashboard/invoices');
         } catch(e){
-                return { message : 'Database Error: Failed to delete Invoice.', error: e};
+                throw e;
+                // return { message : 'Database Error: Failed to delete Invoice.', error: e};
         }
         redirect('/dashboard/invoices');
 }

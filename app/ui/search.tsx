@@ -7,10 +7,10 @@ export default function Search({placeholder} : {placeholder : string}) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-  function debounce(func:(arg)=>void, time: number){
+  function debounce<T>(func:(args:T)=>void, time: number){
           let timer;
           clearTimeout(timer);
-          return function(args){
+          return function(args:T){
                 setTimeout(()=>{
                         func(args);
                 }, time);
