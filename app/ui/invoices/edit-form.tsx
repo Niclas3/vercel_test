@@ -20,10 +20,7 @@ export default function EditInvoiceForm({
   customers: CustomerField[];
 }) {
 
-        const updateInvoiceWithId = function(formData: FormData){
-                return updateInvoice(invoice.id, formData);
-        }
-        const updateInvoWithId = updateInvoice.bind(null,invoice.id);
+ const updateInvoWithId = updateInvoice.bind(null,invoice.id);
   return (
     <form action={updateInvoWithId}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">

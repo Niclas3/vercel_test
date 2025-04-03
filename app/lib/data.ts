@@ -12,8 +12,6 @@ import { formatCurrency } from './utils';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
-import { unstable_noStore as noStore } from 'next/cache';
-
 export async function fetchRevenue() {
   try {
     // Artificially delay a response for demo purposes.
@@ -147,7 +145,6 @@ export async function fetchInvoicesPages(query: string) {
 }
 
 export async function fetchInvoiceById(id: string) {
-        return null;
   try {
     const data = await sql<InvoiceForm[]>`
       SELECT
